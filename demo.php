@@ -1,34 +1,37 @@
 <?php
 
-include 'EasyARCloudSdk.php';
+include 'EasyARClientSdkCRS.php';
 
-//访问www.easyar.cn开通获取
-$appKey = '这里是Cloud Key';
-$appSecret = '这里是Cloud Secret';
-$appHost = '这里是Server-end (Target Mangement) URL';
+// 获取地址 https://portal.easyar.cn/apikey/list
+$apiKey = 'API Key';
+$apiSecret = 'API Secret';
 
-$sdk = new EasyARClientSdkCRS($appKey, $appSecret, $appHost);
+// 获取地址 https://portal.easyar.cn/crs/list
+$crsAppId = 'CRS AppId';
+$crsCloudUrl = 'Cloud URL(Server-end (Target Mangement) URL)';
 
+
+$sdk = new EasyARClientSdkCRS($apiKey, $apiSecret, $crsAppId, $crsCloudUrl);
 
 $rs = $sdk->ping();
 print_r($rs);
 
 
 /*
-$rs = $sdk->targets(10, time() * 1000);
+$rs = $sdk->targetsV3(1, 10);
 if ($rs->statusCode == 0) {
-	print_r($rs->result->targets);
+    print_r($rs->result);
 } else {
-	echo $rs->result->message;
+    print_r($rs);
 }
 */
 
 /*
-$rs = $sdk->info('17b99593-0c2c-4cff-a9a5-5df6145528941');
+$rs = $sdk->info('72ade957-10cf-4d17-bbda-9ab215bc35b8');
 if ($rs->statusCode == 0) {
 	print_r($rs->result);
 } else {
-	echo $rs->result->message;
+	print_r($rs);
 }
 */
 
@@ -57,20 +60,20 @@ $params = [
 	'meta' => base64_encode('hello world'),
 	'image' => base64_encode(file_get_contents('1.jpg')),
 ];
-$rs = $sdk->targetUpdate('b189a689-569c-407c-a934-b4a4dedd6066', $params);
+$rs = $sdk->targetUpdate('104be3c2-8018-4402-98a9-d579691241d6', $params);
 if ($rs->statusCode == 0) {
 	print_r($rs->result);
 } else {
-	echo $rs->result->message;
+    print_r($rs);
 }
 */
 
 /*
-$rs = $sdk->delete('b189a689-569c-407c-a934-b4a4dedd6066');
+$rs = $sdk->delete('104be3c2-8018-4402-98a9-d579691241d6');
 if ($rs->statusCode == 0) {
 	print_r($rs->result);
 } else {
-	echo $rs->result->message;
+	print_r($rs);
 }
 */
 
@@ -79,7 +82,7 @@ $rs = $sdk->targetsCount();
 if ($rs->statusCode == 0) {
 	print_r($rs->result->count);
 } else {
-	echo $rs->result->message;
+	print_r($rs);
 }
 */
 
@@ -89,7 +92,7 @@ $rs = $sdk->similar($image);
 if ($rs->statusCode == 0) {
 	print_r($rs->result->results);
 } else {
-	echo $rs->result->message;
+	print_r($rs);
 }
 */
 
@@ -99,6 +102,6 @@ $rs = $sdk->detection($image);
 if ($rs->statusCode == 0) {
 	print_r($rs->result->grade);
 } else {
-	echo $rs->result->message;
+	print_r($rs);
 }
 */
