@@ -13,7 +13,7 @@ class EasyARClientSdkCRS {
     function __construct($appKey, $appSecret, $appHost) {
         $this->appKey = $appKey;
         $this->appSecret = $appSecret;
-		$this->appHost = 'http://'. $appHost;
+	$this->appHost = $appHost;
     }
 
 	public function ping() {

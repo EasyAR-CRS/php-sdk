@@ -7,8 +7,9 @@ $apiKey = 'API Key';
 $apiSecret = 'API Secret';
 
 // 获取地址 https://portal.easyar.cn/crs/list
-$crsAppId = 'CRS AppId';
-$crsCloudUrl = 'Cloud URL(Server-end (Target Mangement) URL)';
+$crsAppId = 'CRS AppId'
+// Cloud URL(Server-end (Target Mangement) URL)
+$crsCloudUrl = 'https://cn1-crs.easyar.com';
 
 
 $sdk = new EasyARClientSdkCRS($apiKey, $apiSecret, $crsAppId, $crsCloudUrl);

@@ -14,7 +14,7 @@ class EasyARClientSdkCRS {
         $this->apiKey = $apiKey;
         $this->apiSecret = $apiSecret;
         $this->appId = $appId;
-        $this->appHost = 'http://' . $appHost;
+        $this->appHost = $appHost;
     }
 
     public function ping() {
